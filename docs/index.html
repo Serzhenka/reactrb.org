@@ -162,49 +162,25 @@
 <a href="#top-level-api">Top level API</a>
 <ul>
 <li>
-<a href="#react-component-and-react-component-base">React::Component and React::Component::Base</a>
+<a href="#react-component-and-react-component-base"><code>React::Component</code> and <code>React::Component::Base</code></a>
 </li>
 <li>
-<a href="#react-create_element">React.create_element</a>
-</li>
-</ul>
-</li>
-</ul>
+<a href="#react-create_element"><code>React.create_element</code></a>
 </li>
 <li>
-<a href="#when-rendered-will-generates-hellogoodby">when rendered will generates <div prop1="foo" prop2="12"><p>hello</p><p>goodby</p></div></a>
-<ul>
-<li>
-<a href="#dsl-creates-element-and-pushes-it-into-the-rendering-buffer">dsl - creates element and pushes it into the rendering buffer</a>
+<a href="#react-is_valid_element"><code>React.is_valid_element?</code></a>
 </li>
 <li>
-<a href="#dsl-component-will-not-be-placed-in-the-rendering-buffer">dsl - component will NOT be placed in the rendering buffer</a>
+<a href="#react-render"><code>React.render</code></a>
 </li>
 <li>
-<a href="#in-a-rails-controller-renders-component-as-the-view">in a rails controller - renders component as the view</a>
+<a href="#react-unmount_component_at_node"><code>React.unmount_component_at_node</code></a>
 </li>
 <li>
-<a href="#in-a-rails-view-helper-renders-component-into-the-view-like-a-partial">in a rails view helper - renders component into the view (like a partial)</a>
+<a href="#react-render_to_string"><code>React.render_to_string</code></a>
 </li>
 <li>
-<a href="#from-jquery-note-element-is-the-opal-jquery-wrapper-not-be-confused-with-react-element">from jQuery (Note Element is the Opal jQuery wrapper, not be confused with React::Element)</a>
-<ul>
-<li>
-<ul>
-<li>
-<a href="#react-isvalidelement">React.is<em>valid</em>element?</a>
-</li>
-<li>
-<a href="#react-render">React.render</a>
-</li>
-<li>
-<a href="#react-unmountcomponentat_node">React.unmount<em>component</em>at_node</a>
-</li>
-<li>
-<a href="#react-rendertostring">React.render<em>to</em>string</a>
-</li>
-<li>
-<a href="#react-rendertostatic_markup">React.render<em>to</em>static_markup</a>
+<a href="#react-render_to_static_markup"><code>React.render_to_static_markup</code></a>
 </li>
 </ul>
 </li>
@@ -329,26 +305,14 @@
 <li>
 <a href="#importing-libraries">Importing Libraries</a>
 </li>
-</ul>
-</li>
-<li>
-<a href="#taken-from-barrie-hadfield-s-excellent-guide-http-tutorials-pluralsight-com-ruby-ruby-on-rails-reactrb-showcase">taken  from Barrie Hadfield's excellent guide: http://tutorials.pluralsight.com/ruby-ruby-on-rails/reactrb-showcase</a>
-<ul>
 <li>
 <a href="#auto-import">Auto Import</a>
 </li>
-</ul>
-</li>
-<li>
-<a href="#app-views-components-rb">app/views/components.rb</a>
-<ul>
 <li>
 <a href="#including-react-source">Including React Source</a>
 </li>
 <li>
 <a href="#using-webpack">Using Webpack</a>
-</li>
-</ul>
 </li>
 </ul>
 
@@ -913,7 +877,7 @@ end
 
 <p>See the <a href="/docs/getting-started.html">Getting Started</a> section for details on getting react loaded in your environment.</p>
 
-<h3>React::Component and React::Component::Base</h3>
+<h3><code>React::Component</code> and <code>React::Component::Base</code></h3>
 
 <p>React components classes either include React::Component or are subclasses of React::Component::Base.  </p>
 <pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">Component</span> <span class="o">&lt;</span> <span class="no">React</span><span class="o">::</span><span class="no">Component</span><span class="o">::</span><span class="no">Base</span>
@@ -941,7 +905,7 @@ end
 </code></pre>
 <p>Note that you should never redefine the <code>new</code> or <code>initialize</code> methods, or call them directly.  The equivilent of <code>initialize</code> is the <code>before_mount</code> callback.  For more information see <a href="/docs/component-specs.html">Component Specs and Lifecycle</a>.</p>
 
-<h3>React.create_element</h3>
+<h3><code>React.create_element</code></h3>
 
 <p>A React Element is a component class, a set of parameters, and a group of children.  When an element is rendered the parameters and used to initialize a new instance of the component.</p>
 
@@ -949,27 +913,27 @@ end
 such as div, or span), the parameters (properties) to be passed to the element, and optionally a block that will be evaluated to
 build the enclosed children elements</p>
 <pre class="highlight ruby"><code><span class="no">React</span><span class="p">.</span><span class="nf">create_element</span><span class="p">(</span><span class="s2">"div"</span><span class="p">,</span> <span class="ss">prop1: </span><span class="s2">"foo"</span><span class="p">,</span> <span class="ss">prop2: </span><span class="mi">12</span><span class="p">)</span> <span class="p">{</span> <span class="n">para</span> <span class="p">{</span> <span class="s2">"hello"</span> <span class="p">};</span> <span class="n">para</span> <span class="p">{</span> <span class="s2">"goodby"</span> <span class="p">}</span> <span class="p">)</span>
-<span class="c1"># when rendered will generates &lt;div prop1="foo" prop2="12"&gt;&lt;p&gt;hello&lt;/p&gt;&lt;p&gt;goodby&lt;/p&gt;&lt;/div&gt;</span>
+  <span class="c1"># when rendered will generates &lt;div prop1="foo" prop2="12"&gt;&lt;p&gt;hello&lt;/p&gt;&lt;p&gt;goodby&lt;/p&gt;&lt;/div&gt;</span>
 </code></pre>
 <p>You almost never need to directly call create_element, the DSL, Rails, and jQuery interfaces take care of this for you.</p>
-<pre class="highlight ruby"><code><span class="c1"># dsl - creates element and pushes it into the rendering buffer</span>
+<pre class="highlight ruby"><code>    <span class="c1"># dsl - creates element and pushes it into the rendering buffer</span>
     <span class="no">MyComponent</span><span class="p">(.</span><span class="nf">.</span><span class="p">.</span><span class="nf">params</span><span class="p">.</span><span class="nf">.</span><span class="o">.</span><span class="p">)</span> <span class="p">{</span> <span class="p">.</span><span class="nf">.</span><span class="p">.</span><span class="nf">optional</span> <span class="n">children</span><span class="p">.</span><span class="nf">.</span><span class="o">.</span> <span class="p">}</span>
-<span class="c1"># dsl - component will NOT be placed in the rendering buffer</span>
+    <span class="c1"># dsl - component will NOT be placed in the rendering buffer</span>
     <span class="no">MyComponent</span><span class="p">(.</span><span class="nf">.</span><span class="p">.</span><span class="nf">params</span><span class="p">.</span><span class="nf">.</span><span class="o">.</span><span class="p">)</span> <span class="p">{</span> <span class="p">.</span><span class="nf">.</span><span class="o">.</span> <span class="p">}.</span><span class="nf">as_node</span>
-<span class="c1"># in a rails controller - renders component as the view</span>
+    <span class="c1"># in a rails controller - renders component as the view</span>
     <span class="n">render_component</span><span class="p">(</span><span class="s2">"MyComponent"</span><span class="p">,</span> <span class="p">.</span><span class="nf">.</span><span class="p">.</span><span class="nf">params</span><span class="p">.</span><span class="nf">.</span><span class="o">.</span><span class="p">)</span>
-<span class="c1"># in a rails view helper - renders component into the view (like a partial)</span>
+    <span class="c1"># in a rails view helper - renders component into the view (like a partial)</span>
     <span class="n">react_component</span><span class="p">(</span><span class="s2">"MyComponent"</span><span class="p">,</span> <span class="p">.</span><span class="nf">.</span><span class="o">.</span><span class="p">)</span>
-<span class="c1"># from jQuery (Note Element is the Opal jQuery wrapper, not be confused with React::Element)</span>
+    <span class="c1"># from jQuery (Note Element is the Opal jQuery wrapper, not be confused with React::Element)</span>
     <span class="no">Element</span><span class="p">[</span><span class="s1">'#container'</span><span class="p">].</span><span class="nf">render</span> <span class="p">{</span> <span class="no">MyComponent</span><span class="p">(.</span><span class="nf">.</span><span class="p">.</span><span class="nf">params</span><span class="p">.</span><span class="nf">.</span><span class="o">.</span><span class="p">)</span> <span class="p">{</span> <span class="p">.</span><span class="nf">.</span><span class="p">.</span><span class="nf">optional</span> <span class="n">children</span><span class="p">.</span><span class="nf">.</span><span class="o">.</span> <span class="p">}</span> <span class="p">}</span>  
 </code></pre>
-<h3>React.is<em>valid</em>element?</h3>
+<h3><code>React.is_valid_element?</code></h3>
 <pre class="highlight ruby"><code><span class="n">is_valid_element?</span><span class="p">(</span><span class="n">object</span><span class="p">)</span>
 </code></pre>
 <p>Verifies <code>object</code> is a valid react element.  Note that <code>React::Element</code> wraps the React.js native class,
 <code>React.is_valid_element?</code> returns true for both classes unlike <code>object.is_a? React::Element</code></p>
 
-<h3>React.render</h3>
+<h3><code>React.render</code></h3>
 <pre class="highlight ruby"><code><span class="no">React</span><span class="p">.</span><span class="nf">render</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">container</span><span class="p">)</span> <span class="p">{</span> <span class="nb">puts</span> <span class="s2">"element rendered"</span> <span class="p">}</span>
 </code></pre>
 <p>Render an <code>element</code> into the DOM in the supplied <code>container</code> and return a <a href="/docs/more-about-refs.html">reference</a> to the component.</p>
@@ -983,21 +947,17 @@ build the enclosed children elements</p>
 <blockquote>
 <p>Note:</p>
 
-<p><code>React.render()</code> controls the contents of the container node you pass in. Any existing DOM elements
-inside are replaced when first called. Later calls use React’s DOM diffing algorithm for efficient
-updates.</p>
+<p><code>React.render()</code> controls the contents of the container node you pass in. Any existing DOM elements inside are replaced when first called. Later calls use React’s DOM diffing algorithm for efficient updates.</p>
 
-<p><code>React.render()</code> does not modify the container node (only modifies the children of the container). In
-the future, it may be possible to insert a component to an existing DOM node without overwriting
-the existing children.</p>
+<p><code>React.render()</code> does not modify the container node (only modifies the children of the container). In the future, it may be possible to insert a component to an existing DOM node without overwriting the existing children.</p>
 </blockquote>
 
-<h3>React.unmount<em>component</em>at_node</h3>
+<h3><code>React.unmount_component_at_node</code></h3>
 <pre class="highlight ruby"><code><span class="no">React</span><span class="p">.</span><span class="nf">unmount_component_at_node</span><span class="p">(</span><span class="n">container</span><span class="p">)</span>
 </code></pre>
 <p>Remove a mounted React component from the DOM and clean up its event handlers and state. If no component was mounted in the container, calling this function does nothing. Returns <code>true</code> if a component was unmounted and <code>false</code> if there was no component to unmount.</p>
 
-<h3>React.render<em>to</em>string</h3>
+<h3><code>React.render_to_string</code></h3>
 <pre class="highlight ruby"><code><span class="no">React</span><span class="p">.</span><span class="nf">render_to_string</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
 </code></pre>
 <p>Render an element to its initial HTML. This is should only be used on the server for prerendering content. React will return a string containing the HTML. You can use this method to generate HTML on the server and send the markup down on the initial request for faster page loads and to allow search engines to crawl your pages for SEO purposes.</p>
@@ -1006,7 +966,7 @@ the existing children.</p>
 
 <p>If you are using rails, and have included the react-rails gem, then the prerendering functions are automatically performed.  Otherwise you can use <code>render_to_string</code> to build your own prerendering system.</p>
 
-<h3>React.render<em>to</em>static_markup</h3>
+<h3><code>React.render_to_static_markup</code></h3>
 <pre class="highlight ruby"><code><span class="no">React</span><span class="p">.</span><span class="nf">render_to_static_markup</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
 </code></pre>
 <p>Similar to <code>render_to_string</code>, except this doesn&rsquo;t create extra DOM attributes such as <code>data-react-id</code>, that React uses internally. This is useful if you want to use React as a simple static page generator, as stripping away the extra attributes can save lots of bytes.</p>
@@ -1503,7 +1463,7 @@ different browsers.</p>
 <span class="k">end</span>
 </code></pre>
 <p>We can now access our bootstrap components as components defined within the RBS scope:</p>
-<pre class="highlight ruby"><code><span class="c1"># taken  from Barrie Hadfield's excellent guide: http://tutorials.pluralsight.com/ruby-ruby-on-rails/reactrb-showcase</span>
+<pre class="highlight ruby"><code>  <span class="c1"># taken  from Barrie Hadfield's excellent guide: http://tutorials.pluralsight.com/ruby-ruby-on-rails/reactrb-showcase</span>
 <span class="k">module</span> <span class="nn">Components</span>
   <span class="k">module</span> <span class="nn">Home</span>
     <span class="k">class</span> <span class="nc">Show</span> <span class="o">&lt;</span> <span class="no">React</span><span class="o">::</span><span class="no">Component</span><span class="o">::</span><span class="no">Base</span>
@@ -1555,7 +1515,7 @@ different browsers.</p>
 <p>Instead you can opt-in for <em>auto importing</em> Javascript components into Reactrb as you need them.  Simply <code>require react/auto-import</code> immediately after you <code>require reactrb</code>.  </p>
 
 <p>For example typically you might have this:</p>
-<pre class="highlight ruby"><code><span class="c1"># app/views/components.rb</span>
+<pre class="highlight ruby"><code>  <span class="c1"># app/views/components.rb</span>
 <span class="nb">require</span> <span class="s1">'opal'</span>
 <span class="nb">require</span> <span class="s1">'reactrb'</span>
 <span class="nb">require</span> <span class="s1">'reactrb/auto-import'</span> <span class="c1"># this opts into auto-importing javascript components</span>
