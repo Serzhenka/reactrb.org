@@ -41,101 +41,15 @@
 </li>
 <li>
 <a href="#dsl-overview">DSL Overview</a>
-<ul>
-<li>
-<a href="#react-component-base">React::Component::Base</a>
-</li>
-<li>
-<a href="#macros-class-methods">Macros (Class Methods)</a>
-</li>
-<li>
-<a href="#data-accessor-methods">Data Accessor Methods</a>
-</li>
-<li>
-<a href="#tag-and-component-rendering">Tag and Component Rendering</a>
-</li>
-<li>
-<a href="#event-handlers">Event Handlers</a>
-</li>
-<li>
-<a href="#miscellaneous-methods">Miscellaneous Methods</a>
-</li>
-<li>
-<a href="#ruby-and-reactrb">Ruby and Reactrb</a>
-</li>
-</ul>
 </li>
 <li>
 <a href="#dsl-gotchas">DSL Gotchas</a>
-<ul>
-<li>
-<a href="#html-entities">HTML Entities</a>
-</li>
-<li>
-<a href="#custom-html-attributes">Custom HTML Attributes</a>
-</li>
-<li>
-<a href="#invoking-application-components">Invoking Application Components</a>
-</li>
-</ul>
 </li>
 <li>
 <a href="#state-and-event-handelers">State and Event Handelers</a>
-<ul>
-<li>
-<a href="#a-simple-example">A Simple Example</a>
-</li>
-<li>
-<a href="#event-handling-and-synthetic-events">Event Handling and Synthetic Events</a>
-</li>
-<li>
-<a href="#under-the-hood-event-delegation">Under the Hood: Event Delegation</a>
-</li>
-<li>
-<a href="#components-are-just-state-machines">Components are Just State Machines</a>
-</li>
-<li>
-<a href="#how-state-works">How State Works</a>
-</li>
-<li>
-<a href="#what-components-should-have-state">What Components Should Have State?</a>
-</li>
-<li>
-<a href="#what-should-go-in-state">What <em>Should</em> Go in State?</a>
-</li>
-<li>
-<a href="#what-shouldn-t-go-in-state">What <em>Shouldn't</em> Go in State?</a>
-</li>
-</ul>
 </li>
 <li>
 <a href="#multiple-components">Multiple Components</a>
-<ul>
-<li>
-<a href="#motivation-separation-of-concerns">Motivation: Separation of Concerns</a>
-</li>
-<li>
-<a href="#composition-example">Composition Example</a>
-</li>
-<li>
-<a href="#ownership">Ownership</a>
-</li>
-<li>
-<a href="#children">Children</a>
-</li>
-<li>
-<a href="#child-reconciliation">Child Reconciliation</a>
-</li>
-<li>
-<a href="#stateful-children">Stateful Children</a>
-</li>
-<li>
-<a href="#dynamic-children">Dynamic Children</a>
-</li>
-<li>
-<a href="#data-flow">Data Flow</a>
-</li>
-</ul>
 </li>
 <li>
 <a href="#reusable-components">Reusable Components</a>
@@ -160,94 +74,12 @@
 </li>
 <li>
 <a href="#top-level-api">Top level API</a>
-<ul>
-<li>
-<a href="#react-component-and-react-component-base"><code>React::Component</code> and <code>React::Component::Base</code></a>
-</li>
-<li>
-<a href="#react-create_element"><code>React.create_element</code></a>
-</li>
-<li>
-<a href="#react-is_valid_element"><code>React.is_valid_element?</code></a>
-</li>
-<li>
-<a href="#react-render"><code>React.render</code></a>
-</li>
-<li>
-<a href="#react-unmount_component_at_node"><code>React.unmount_component_at_node</code></a>
-</li>
-<li>
-<a href="#react-render_to_string"><code>React.render_to_string</code></a>
-</li>
-<li>
-<a href="#react-render_to_static_markup"><code>React.render_to_static_markup</code></a>
-</li>
-</ul>
 </li>
 <li>
 <a href="#react-component-base">React::Component::Base</a>
-<ul>
-<li>
-<a href="#lifecycle-callbacks">Lifecycle Callbacks</a>
-</li>
-<li>
-<a href="#the-param-macro">The <code>param</code> macro</a>
-<ul>
-<li>
-<a href="#accessing-param-values">Accessing param values</a>
-</li>
-<li>
-<a href="#params-of-type-proc">Params of type <code>Proc</code></a>
-</li>
-<li>
-<a href="#params-of-type-react-observable">Params of type <code>React::Observable</code></a>
-</li>
-</ul>
-</li>
-<li>
-<a href="#the-state-instance-method">The <code>state</code> instance method</a>
-</li>
-</ul>
-</li>
-<li>
-<a href="#the-force_update-method">The <code>force_update!</code> method</a>
-</li>
-<li>
-<a href="#the-dom_node-method">The <code>dom_node</code> method</a>
-</li>
-<li>
-<a href="#the-children-method">The <code>children</code> method</a>
-</li>
-</ul>
 </li>
 <li>
 <a href="#lifecycle-methods">Lifecycle Methods</a>
-<ul>
-<li>
-<a href="#rendering">Rendering</a>
-</li>
-<li>
-<a href="#before-mounting-first-render">Before Mounting (first render)</a>
-</li>
-<li>
-<a href="#after-mounting-first-render">After Mounting (first render)</a>
-</li>
-<li>
-<a href="#before-receiving-new-params">Before Receiving New Params</a>
-</li>
-<li>
-<a href="#controlling-updates">Controlling Updates</a>
-</li>
-<li>
-<a href="#before-updating-re-rendering">Before Updating (re-rendering)</a>
-</li>
-<li>
-<a href="#after-updating-re-rendering">After Updating (re-rendering)</a>
-</li>
-<li>
-<a href="#unmounting">Unmounting</a>
-</li>
-</ul>
 </li>
 <li>
 <a href="#react-event">React::Event</a>
@@ -257,44 +89,6 @@
 </li>
 <li>
 <a href="#supported-events">Supported Events</a>
-<ul>
-<li>
-<a href="#clipboard-events">Clipboard Events</a>
-</li>
-<li>
-<a href="#composition-events-not-tested">Composition Events (not tested)</a>
-</li>
-<li>
-<a href="#keyboard-events">Keyboard Events</a>
-</li>
-<li>
-<a href="#focus-events">Focus Events</a>
-</li>
-<li>
-<a href="#form-events">Form Events</a>
-</li>
-<li>
-<a href="#mouse-events">Mouse Events</a>
-</li>
-<li>
-<a href="#selection-events">Selection events</a>
-</li>
-<li>
-<a href="#touch-events">Touch events</a>
-</li>
-<li>
-<a href="#ui-events">UI Events</a>
-</li>
-<li>
-<a href="#wheel-events">Wheel Events</a>
-</li>
-<li>
-<a href="#media-events">Media Events</a>
-</li>
-<li>
-<a href="#image-events">Image Events</a>
-</li>
-</ul>
 </li>
 <li>
 <a href="#using-javascript-components">Using Javascript Components</a>
@@ -316,9 +110,7 @@
 </li>
 </ul>
 
-        <p>ToDo: In above, in specifying the layout here the TOC rerender includes the text above.</p>
-
-<h2>DSL Overview</h2>
+        <h2>DSL Overview</h2>
 
 <p>The Reactrb DSL (Domain Specific Language) is a set of class and instance methods that are used to describe your React components.</p>
 
