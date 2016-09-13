@@ -34,13 +34,13 @@
       </section>
 
       <section class="main-content">
-        <h1>Reactrb Express</h1>
+        <h1 id="reactrb-express">Reactrb Express</h1>
 
 <p>Github: <a href="https://github.com/reactrb/reactrb-express">Reactrb Express</a></p>
 
 <p>React.rb for static sites, with no build process needed</p>
 
-<h2>How To</h2>
+<h2 id="how-to">How To</h2>
 
 <ol>
 <li>Include reactrb-express.js in with your js files, or link to it from here: <a href="https://rawgit.com/reactrb/reactrb-express/master/reactrb-express.js">https://rawgit.com/reactrb/reactrb-express/master/reactrb-express.js</a></li>
@@ -49,7 +49,7 @@
 or link to your ruby code using the src attribute <code>&lt;script type=&quot;text/ruby&quot; src=.../&gt;</code></li>
 </ol>
 
-<h2>What is included</h2>
+<h2 id="what-is-included">What is included</h2>
 
 <ul>
 <li>Opal (Ruby to Javascript Transpiler) - currently version 0.9</li>
@@ -58,7 +58,7 @@ or link to your ruby code using the src attribute <code>&lt;script type=&quot;te
 <li>Opal-Jquery (Ruby Jquery wrapper, including HTTP, timers, and of course DOM queries)</li>
 </ul>
 
-<h2>How it works</h2>
+<h2 id="how-it-works">How it works</h2>
 
 <p>Your ruby code will be compiled by the browser into javascript, and executed.  Any compilation or runtime errors
 will be briefly reported to the console.</p>
@@ -66,7 +66,7 @@ will be briefly reported to the console.</p>
 <p>Ruby classes can subclass React::Component::Base to become React components, and then use the Reactrb
 DSL to dynamically generate reactive DOM nodes.</p>
 
-<h2>Example</h2>
+<h2 id="example">Example</h2>
 
 <p>See this example in action here: <a href="http://reactrb.github.io/reactrb-express/">http://reactrb.github.io/reactrb-express/</a></p>
 
@@ -120,11 +120,11 @@ can specify the react component and parameters using data- tags:
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre>
-<h1>Want a larger example?</h1>
+<h1 id="want-a-larger-example">Want a larger example?</h1>
 
 <p>The <a href="http://reactrb.github.io/docs/tutorial.html">Reactrb ChatRoom application and tutorial</a> uses Reactrb-Express.</p>
 
-<h1>Trying it out using github</h1>
+<h1 id="trying-it-out-using-github">Trying it out using github</h1>
 
 <p>Github makes a great sandbox to try out small Reactrb online with nothing but your browser.</p>
 
@@ -133,11 +133,11 @@ can specify the react component and parameters using data- tags:
 <p>but rather than &ldquo;cloning&rdquo; the repo, and editing your files on your computer
 you can just create and edit files right on the github site.</p>
 
-<h1>Mounting Components</h1>
+<h1 id="mounting-components">Mounting Components</h1>
 
 <p>In addition to the standard ways to mount top level components reactrb-express will directly mount components onto DOM elements that have the <code>data-reactrb-mount</code> attribute.  The attribute value should be the fully qualified name of the component.  For example &ldquo;Clock&rdquo;.  Any additional data attributes will be passed as params to the component.  The attribute names will be snake cased (i.e. <code>data-foo-bar</code> becomes the <code>foo_bar</code> key)</p>
 
-<h1>Building and Contributing</h1>
+<h1 id="building-and-contributing">Building and Contributing</h1>
 
 <p>To build, clone the repo, run <code>bundle install</code> and then <code>bundle exec rake</code></p>
 

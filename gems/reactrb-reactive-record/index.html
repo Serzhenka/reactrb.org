@@ -34,15 +34,15 @@
       </section>
 
       <section class="main-content">
-        <h1>Reactive Record</h1>
+        <h1 id="reactive-record">Reactive Record</h1>
 
 <p>Github: <a href="https://github.com/reactrb/reactive-record">Reactrb Reactive Record</a></p>
 
-<h1>Reactive Record</h1>
+<h1 id="reactive-record">Reactive Record</h1>
 
 <p>Reactive Record is a client-side representation of your Active Record models fully integrated with Reactrb. Reactive Record works perfectly with Synchromesh to magically synchronise server side data changes with any connected client. Writing simple code, without worrying about how data moves between one machine and another, and then seeing live updates in action is magical.</p>
 
-<h4>Reactive Record gives you Active Record models on the client integrated with Reactrb.</h4>
+<h4 id="reactive-record-gives-you-active-record-models-on-the-client-integrated-with-reactrb">Reactive Record gives you Active Record models on the client integrated with Reactrb.</h4>
 
 <p>You do nothing to your current Active Record models except move them to the models/public directory (so they are compiled on the client as well as the server.)</p>
 
@@ -55,7 +55,7 @@
 <li>Models and even methods within models can be selectively implemented server-side only.</li>
 </ul>
 
-<h2>Installation</h2>
+<h2 id="installation">Installation</h2>
 
 <p>Add this line to your application&rsquo;s Gemfile:
 <code>ruby
@@ -70,7 +70,7 @@ Finally you need to add a line to your &lsquo;routes.rb&rsquo;:
 mount ReactiveRecord::Engine =&gt; &#39;/rr&#39;
 </code></p>
 
-<h3>Models</h3>
+<h3 id="models">Models</h3>
 
 <p>Reactive Record creates a client side (JavaScript) representation of your Active Record models. This representation can be taken directly from your existing models or if you prefer you can maintain a seperate version of your models (a public version). In this example we will keep the models we want Reactive Record to see in  <code>models/public</code> and <code>require</code> this into <code>components.rb</code> so it is compiled to JavaScript and available to our client code..</p>
 
@@ -81,20 +81,20 @@ models/public
 Then create <code>_react_public_models.rb</code> in your <code>models</code> folder:
 &ldquo;`ruby</p>
 
-<h1>models/<em>react</em>public_models.rb</h1>
+<h1 id="models-reactpublic_models-rb">models/<em>react</em>public_models.rb</h1>
 
 <p>require_tree &lsquo;./public&rsquo;
 <code>
 And then add a line to your `views/components.rb` file:
 </code>ruby</p>
 
-<h1>views/components.rb</h1>
+<h1 id="views-components-rb">views/components.rb</h1>
 
 <p>require &lsquo;<em>react</em>public_models&rsquo;
 &rdquo;<code>
 And that is all the setup you need. Any Active Record models you place in the</code>models/public` folder will be avalable to you client-side Reactrb code as it they were on the client.</p>
 
-<h2>Usage</h2>
+<h2 id="usage">Usage</h2>
 
 <p>Let&rsquo;s assume you have two Active Record models which we have placed in your <code>models/public</code> folder so they can be seen by Reactive Record:</p>
 <pre class="highlight ruby"><code><span class="c1"># models/public/post.rb</span>
@@ -132,14 +132,14 @@ And that is all the setup you need. Any Active Record models you place in the</c
 </code></pre>
 <p>Note that with Reactive Record <code>@posts = Post.all</code> is set in <code>before_mount</code> whereas if you were using a a REST based <code>GET</code> you would have done so in <code>after_mount</code>. Setting the value of <code>@posts</code> in <code>before_mount</code> means you do not have to worry about nil values while prerendering. The actual query to the server is not initiated at this stage, but when the component is rendering.</p>
 
-<h2>Live updates via Synchromesh</h2>
+<h2 id="live-updates-via-synchromesh">Live updates via Synchromesh</h2>
 
 <p><a href="https://github.com/reactrb/synchromesh">Synchromesh</a> if fully integrated with Reactive Record. Changes in records are broadcast (after filtering for security) to the clients and Reactrb updates the page if and only if the user is viewing a component containing data that has changed.</p>
 
 <p>To have the component we have written above remain fully in synch with the database and automatically update if any new posts or comments are added to the database, all we need to do is use Reactrb state:
 &ldquo;`ruby</p>
 
-<h1>views/components/post<em>with</em>comments_list.rb</h1>
+<h1 id="views-components-postwithcomments_list-rb">views/components/post<em>with</em>comments_list.rb</h1>
 
 <p>class PostsWithCommentsList &lt; React::Component::Base</p>
 
@@ -167,7 +167,7 @@ That&rsquo;s it! You need no additional code to ensure your data remains updated
 
 <p>See <a href="https://github.com/reactrb/synchromesh">Synchromesh</a> for how scopes are used to affect the current rendered output from models which are joined to the model being rendered.</p>
 
-<h2>How it works</h2>
+<h2 id="how-it-works">How it works</h2>
 
 <p>Reactive Record uses your existing Active Record models (or a copy thereof) which are compiled to JavaScript and made available on the client. You can consider these to be a public version (or API) of your models.</p>
 
@@ -193,7 +193,7 @@ That&rsquo;s it! You need no additional code to ensure your data remains updated
 
 <p><code>User.find(123).todos.active.due(&quot;1/1/2016&quot;).select(:title)</code></p>
 
-<h2>Help and support</h2>
+<h2 id="help-and-support">Help and support</h2>
 
 <p>Head on over to <a href="https://gitter.im/reactrb/chat">gitter.im</a> to ask any questions you might have!</p>
 
@@ -203,7 +203,7 @@ That&rsquo;s it! You need no additional code to ensure your data remains updated
 
 <p>For an example applcation see <a href="https://reactiverb-todo.herokuapp.com/">reactrb todo</a> (live demo <a href="https://reactiverb-todo.herokuapp.com/">here.</a>)</p>
 
-<h2>Notes</h2>
+<h2 id="notes">Notes</h2>
 
 <ul>
 <li><p>Reactive Record &gt;= 0.8.x depends on the reactrb gem.  You must <a href="https://github.com/reactrb/reactrb#upgrading-to-reactrb">upgrade to reactrb</a></p></li>
@@ -231,7 +231,7 @@ That&rsquo;s it! You need no additional code to ensure your data remains updated
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre>
-<h2>Running tests</h2>
+<h2 id="running-tests">Running tests</h2>
 
 <p>The test suite runs in opal on a rails server, so the test database is actually the test_app&rsquo;s dev database.</p>
 
@@ -243,11 +243,11 @@ That&rsquo;s it! You need no additional code to ensure your data remains updated
 Note: If any tests fail when running the entire suite, there is a good possibility that you will need to run <code>rake db:reset</code> to fix the database before running the tests again.</li>
 </ul>
 
-<h2>Contributions</h2>
+<h2 id="contributions">Contributions</h2>
 
 <p>This project is still in early stage, so discussion, bug reports and PRs are really welcome 😉.</p>
 
-<h2>License</h2>
+<h2 id="license">License</h2>
 
 <p>In short, Reactive Record is available under the MIT license. See the LICENSE file for more info.</p>
 

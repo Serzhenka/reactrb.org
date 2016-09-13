@@ -34,7 +34,7 @@
       </section>
 
       <section class="main-content">
-        <h1>Reactrb Synchromesh</h1>
+        <h1 id="reactrb-synchromesh">Reactrb Synchromesh</h1>
 
 <p>Github: <a href="https://github.com/reactrb/synchromesh">Reactrb Synchromesh</a></p>
 
@@ -44,7 +44,7 @@
 
 <p>Add the gem, setup your configuration, and synchromesh does the rest.</p>
 
-<h2>Transports</h2>
+<h2 id="transports">Transports</h2>
 
 <p>Currently there are two transport mechanisms:  </p>
 
@@ -57,13 +57,13 @@
 
 <p>Also near term we will have a simple mechanism to plug in your own transport.</p>
 
-<h2>Security [NOT IMPLEMENTED YET]</h2>
+<h2 id="security-not-implemented-yet">Security [NOT IMPLEMENTED YET]</h2>
 
 <p>Synchromesh will build on top of ReactiveRecord&rsquo;s model-based permission mechanism:</p>
 
 <p>Each <em>user</em> or <em>user group</em> will get a private transport channel.  Before broadcasting an update to a user&rsquo;s channel Synchromesh will filter the data based on that user&rsquo;s permissions.</p>
 
-<h2>Installation</h2>
+<h2 id="installation">Installation</h2>
 
 <p>Add this line to your application&rsquo;s Gemfile:</p>
 <pre class="highlight ruby"><code><span class="n">gem</span> <span class="s1">'synchromesh'</span>
@@ -74,7 +74,7 @@
 <p>Also you must <code>require &#39;synchromesh&#39;</code> from your client side code.  The easiest way is to
 find the <code>require &#39;reactive-record&#39;</code> line (typically in <code>components.rb</code>) and add <code>require &#39;synchromesh&#39;</code> directly below it.  </p>
 
-<h2>Configuration</h2>
+<h2 id="configuration">Configuration</h2>
 
 <p>Add an initializer like this:</p>
 <pre class="highlight ruby"><code><span class="c1"># for rails this would go in: config/initializers/synchromesh.rb</span>
@@ -86,7 +86,7 @@ find the <code>require &#39;reactive-record&#39;</code> line (typically in <code
   <span class="c1"># config.client_logging = false                         # default is true</span>
 <span class="k">end</span>
 </code></pre>
-<h3>Pusher Configuration Specifics</h3>
+<h3 id="pusher-configuration-specifics">Pusher Configuration Specifics</h3>
 
 <p>Add <code>gem &#39;pusher&#39;</code> to your gem file, and add <code>require synchromesh/pusher</code> to the client only portion of your components manifest.</p>
 <pre class="highlight ruby"><code><span class="c1"># typically config/initializers/synchromesh.rb</span>
@@ -101,7 +101,7 @@ find the <code>require &#39;reactive-record&#39;</code> line (typically in <code
   <span class="n">config</span><span class="p">.</span><span class="nf">channel_prefix</span> <span class="o">=</span> <span class="s1">'syncromesh'</span> <span class="c1"># or any other string you want</span>
 <span class="k">end</span>
 </code></pre>
-<h3>Pusher-Fake</h3>
+<h3 id="pusher-fake">Pusher-Fake</h3>
 
 <p>You can also use the <a href="https://github.com/tristandunn/pusher-fake">Pusher-Fake</a> gem while in development.  Setup is a little tricky.  First
 add <code>gem &#39;pusher-fake&#39;</code> to the development and/or test section of your gem file. Then setup your config file:</p>
@@ -127,7 +127,7 @@ add <code>gem &#39;pusher-fake&#39;</code> to the development and/or test sectio
   <span class="p">}.</span><span class="nf">merge</span><span class="p">(</span><span class="no">PusherFake</span><span class="p">.</span><span class="nf">configuration</span><span class="p">.</span><span class="nf">web_options</span><span class="p">)</span>
 <span class="k">end</span>
 </code></pre>
-<h3>Simple Poller</h3>
+<h3 id="simple-poller">Simple Poller</h3>
 
 <p>Setup your config like this:
 <code>ruby
@@ -141,7 +141,7 @@ Synchromesh.configuration do |config|
 end
 </code></p>
 
-<h2>ActiveRecord Scope Enhancement</h2>
+<h2 id="activerecord-scope-enhancement">ActiveRecord Scope Enhancement</h2>
 
 <p>When the client receives notification that a record has changed Synchromesh finds the set of currently rendered scopes that might be effected, and requests them to be updated from the server.  </p>
 
@@ -210,14 +210,14 @@ end
 
 <span class="k">end</span>
 </code></pre>
-<h2>Development</h2>
+<h2 id="development">Development</h2>
 
 <p>Specs run in rspec/capybara/selenium. To run do:</p>
 <pre class="highlight plaintext"><code>bundle exec rspec
 </code></pre>
 <p>You can run the specs in firefox by adding <code>DRIVER=ff</code> (best for debugging.)  You can add <code>SHOW_LOGS=true</code> if running in poltergeist (the default) to see what is going on, but ff is a lot better.</p>
 
-<h2>How it works</h2>
+<h2 id="how-it-works">How it works</h2>
 
 <p>The design goal is to push as much work onto the client side as possible.</p>
 
@@ -228,11 +228,11 @@ updated.</li>
 <li><code>Reactive-Record</code> then updates scopes, and notifies <code>React</code> of the state changes as it would for any other change.</li>
 </ul>
 
-<h2>Contributing</h2>
+<h2 id="contributing">Contributing</h2>
 
 <p>Bug reports and pull requests are welcome on GitHub at <a href="https://github.com/reactive-ruby/synchromesh">https://github.com/reactive-ruby/synchromesh</a>. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the <a href="contributor-covenant.org">Contributor Covenant</a> code of conduct.</p>
 
-<h2>License</h2>
+<h2 id="license">License</h2>
 
 <p>The gem is available as open source under the terms of the <a href="http://opensource.org/licenses/MIT">MIT License</a>.</p>
 

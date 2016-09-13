@@ -34,9 +34,9 @@
       </section>
 
       <section class="main-content">
-        <h1>Installation</h1>
+        <h1 id="installation">Installation</h1>
 
-<h2>Opal Playground</h2>
+<h2 id="opal-playground">Opal Playground</h2>
 
 <p>A great way to start learning Reactrb is use OpalPlayground.</p>
 
@@ -44,7 +44,7 @@
 
 <p><strong><a href="http://fkchang.github.io/opal-playground/?code:class%20HelloWorld%20%3C%20React%3A%3AComponent%3A%3ABase%0A%20%20param%20%3Avisitor%0A%0A%20%20def%20render%0A%20%20%20%20%22Hello%20there%20%23%7Bparams.visitor%7D%22%0A%20%20end%0Aend%0A%0A%0AElement%5B%27%23content%27%5D.render%20do%0A%20%20HelloWorld%20visitor%3A%20%22world%22%0Aend%0A%0A%0A&amp;html_code=%3Cdiv%20id%3D%27content%27%3E%3C%2Fdiv%3E&amp;css_code=body%20%7B%0A%20%20background%3A%20%23eeeeee%3B%0A%7D%0A">HelloWorld</a></strong></p>
 
-<h2>Using Reactrb-Express</h2>
+<h2 id="using-reactrb-express">Using Reactrb-Express</h2>
 
 <p><em>formerly inline-reactive-ruby</em></p>
 
@@ -55,7 +55,7 @@ Simply include the reactrb-express.js file with your other javascript code, or a
 
 <p><a href="https://github.com/reactrb/reactrb-express">Reactrb-Express</a></p>
 
-<h2>With Rails</h2>
+<h2 id="with-rails">With Rails</h2>
 
 <p>Reactrb works great with new or existing rails apps, and Reactrb plays well with other frameworks, so
 its pain free to introduce React to your application.</p>
@@ -70,7 +70,7 @@ its pain free to introduce React to your application.</p>
 
 <p>Because React plays well with others, you can start with a single aspect of a page or layout (a dynamic chat widget for example) and add a React component to implement that functionality.</p>
 
-<h4>Rendering Components</h4>
+<h4 id="rendering-components">Rendering Components</h4>
 
 <p>Once you are setup (i.e. <code>rails g reactrb:install --all</code>) components may be rendered directly from a controller action by simply following a naming convention. To render a component from the <code>home#show</code> action, create a component class named <code>Show</code>.  Note: You can use the <code>rails g reactrb:component Home::Show</code> command to generate a component template.</p>
 <pre class="highlight ruby"><code><span class="c1"># app/views/components/home/show.rb</span>
@@ -103,13 +103,13 @@ its pain free to introduce React to your application.</p>
 
 <p>Have a look at the sources in the console, and notice your ruby code is there, and you can set break points etc.</p>
 
-<h3>Manual Rails Install</h3>
+<h3 id="manual-rails-install">Manual Rails Install</h3>
 
 <p>The following instructions have been superceeded by the <a href="https://github.com/reactrb/reactrb-rails-generator"><code>reactrb-rails-generator</code></a> gem use them at your own risk!</p>
 
 <p>To start using Reactrb within a new or existing rails 4.0 app, follow these steps:</p>
 
-<h4>Add the gems</h4>
+<h4 id="add-the-gems">Add the gems</h4>
 
 <p>In your Gemfile:</p>
 <pre class="highlight ruby"><code><span class="n">gem</span> <span class="s1">'reactrb'</span>
@@ -122,7 +122,7 @@ its pain free to introduce React to your application.</p>
 </code></pre>
 <p>Run <code>bundle install</code> and restart your rails server.</p>
 
-<h4>Add the components directory and manifest</h4>
+<h4 id="add-the-components-directory-and-manifest">Add the components directory and manifest</h4>
 
 <p>Your react components will go into the <code>app/views/components/</code> directory of your
 rails app.</p>
@@ -137,7 +137,7 @@ require 'reactrb'
 require 'reactrb-router' # if you are using the reactive-router gem
 require_tree './components'
 </code></pre>
-<h4>Client Side Assets</h4>
+<h4 id="client-side-assets">Client Side Assets</h4>
 
 <p>Typically the client will need all the above assets, plus other files that are client only.
 Notably jQuery is a client only asset.</p>
@@ -159,12 +159,12 @@ require 'react_ujs'
 require 'jquery'      # You need both these files to access jQuery from Opal.
 require 'opal-jquery' # They must be in this order.
 </code></pre>
-<h2>With Sinatra</h2>
+<h2 id="with-sinatra">With Sinatra</h2>
 
 <p>Reactrb works fine with Sinatra.  Use this <a href="https://github.com/reactrb/reactrb-examples">Sinatra Example App</a>
 to get started.</p>
 
-<h2>Building With Rake</h2>
+<h2 id="building-with-rake">Building With Rake</h2>
 
 <p>If you have a larger static app (like this one) you will want to precompile your ruby code to a single js file, instead of using Reactrb-Express. <em>You will need
 a basic ruby setup (you can follow instructions for Jekyll for example.)</em></p>
@@ -219,7 +219,7 @@ called react_lib.</p>
 
 <p>This should build <code>react_lib.js</code> which can be included in your main html file.</p>
 
-<h2>Next Steps</h2>
+<h2 id="next-steps">Next Steps</h2>
 
 <p>Check out <a href="/docs/tutorial.html">the tutorial</a> to learn more.</p>
 

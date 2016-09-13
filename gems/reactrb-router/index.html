@@ -34,13 +34,13 @@
       </section>
 
       <section class="main-content">
-        <h1>Reactrb Router</h1>
+        <h1 id="reactrb-router">Reactrb Router</h1>
 
 <p>Github: <a href="https://github.com/reactrb/reactrb-router">Reactrb Router</a></p>
 
 <p>ReactrbRouter allows you write and use the React Router in Ruby through Opal.</p>
 
-<h2>Installation</h2>
+<h2 id="installation">Installation</h2>
 
 <p>Add this line to your application&rsquo;s Gemfile:</p>
 <pre class="highlight ruby"><code><span class="n">gem</span> <span class="s1">'reactrb-router'</span><span class="p">,</span> <span class="ss">git: </span><span class="s1">'https://github.com/reactrb/reactrb-router.git'</span><span class="p">,</span> <span class="ss">branch: </span><span class="s1">'v2-4-0'</span>
@@ -48,11 +48,11 @@
 <p>And then execute:</p>
 <pre class="highlight plaintext"><code>$ bundle
 </code></pre>
-<h2>Usage</h2>
+<h2 id="usage">Usage</h2>
 
 <p>This is simply a DSL wrapper on <a href="....">react-router</a></p>
 
-<h3>DSL</h3>
+<h3 id="dsl">DSL</h3>
 
 <p>The following DSL:</p>
 <pre class="highlight ruby"><code><span class="n">route</span><span class="p">(</span><span class="s2">"/"</span><span class="p">,</span> <span class="ss">mounts: </span><span class="no">App</span><span class="p">,</span> <span class="ss">index: </span><span class="no">Home</span><span class="p">)</span> <span class="k">do</span>
@@ -102,7 +102,7 @@
 
 <p>The above example does not cover all the possible syntax, here are the other methods and options:</p>
 
-<h4>enter / leave / change transition hooks</h4>
+<h4 id="enter-leave-change-transition-hooks">enter / leave / change transition hooks</h4>
 
 <p>for adding an onEnter or onLeave hook you would say:</p>
 <pre class="highlight ruby"><code><span class="n">route</span><span class="p">(</span><span class="s2">"foo"</span><span class="p">).</span><span class="nf">on</span><span class="p">(</span><span class="ss">:leave</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span> <span class="n">t</span> <span class="o">|</span> <span class="p">.</span><span class="nf">.</span><span class="o">.</span> <span class="p">}.</span><span class="nf">on</span><span class="p">(</span><span class="ss">:enter</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span> <span class="n">t</span> <span class="o">|</span><span class="p">.</span><span class="nf">.</span><span class="p">.</span><span class="nf">.</span> <span class="p">}</span>
@@ -144,7 +144,7 @@
 
 <p>The hooks can also be specified as proc values to the <code>:on_leave</code>, <code>:on_enter</code>, <code>:on_change</code> options.</p>
 
-<h4>multiple component mounting</h4>
+<h4 id="multiple-component-mounting">multiple component mounting</h4>
 
 <p>The <code>mounts</code> option can accept a single component, or a hash which will generate a <code>components</code> (plural) react-router prop, as in:</p>
 
@@ -154,7 +154,7 @@
 
 <p><code>&lt;Route path=&quot;groups&quot; components={{main: Groups, sidebar: GroupsSidebar}} /&gt;</code> JSX</p>
 
-<h4>The <code>mounts</code> option can also take a <code>Proc</code> or be specified as a block</h4>
+<h4 id="the-mounts-option-can-also-take-a-proc-or-be-specified-as-a-block">The <code>mounts</code> option can also take a <code>Proc</code> or be specified as a block</h4>
 
 <p>The proc is passed a TransitionContext (see <strong>Hooks</strong> above) and may either return a react component to be mounted, or return a promise.  If a promise is returned the transition will wait till the promise is either resolved with a component, or rejected.</p>
 
@@ -182,13 +182,13 @@
 
 <p>Note that if no block is given (as in <code>:bomb</code> above) the component name will be inferred from the argument (<code>Bomb</code> in this case.)</p>
 
-<h4>The index component can be specified as a proc</h4>
+<h4 id="the-index-component-can-be-specified-as-a-proc">The index component can be specified as a proc</h4>
 
 <p>Same deal as mount&hellip;</p>
 
 <p><code>route(&quot;foo&quot;, index: -&gt; { MyIndex })</code></p>
 
-<h4>The index method</h4>
+<h4 id="the-index-method">The index method</h4>
 
 <p>Instead of specifying the index component as a param to the parent route, it can be specified as a child using the
 index method:</p>
@@ -200,7 +200,7 @@ index method:</p>
 </code></pre>
 <p>This is useful because the index method has all the features of a route except that it does not take a path or children.</p>
 
-<h4>The <code>redirect</code> options</h4>
+<h4 id="the-redirect-options">The <code>redirect</code> options</h4>
 
 <p>with static arguments:</p>
 
@@ -212,11 +212,11 @@ index method:</p>
 
 <p><code>redirect(&quot;/from/path/spec/:id&quot;).to { |curr_state| &quot;/to/path/spec/#{current_state[:id]}&quot;}.query { {q1: 12} }</code></p>
 
-<h4>The <code>index_redirect</code> method</h4>
+<h4 id="the-index_redirect-method">The <code>index_redirect</code> method</h4>
 
 <p>just like <code>redirect</code> without the first arg: <code>index_redirect(to: ... query: ...)</code></p>
 
-<h3>The Router Component</h3>
+<h3 id="the-router-component">The Router Component</h3>
 
 <p>A router is defined as a subclass of <code>React::Router</code> which is itself a <code>React::Component::Base</code>.</p>
 <pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">Router</span> <span class="o">&lt;</span> <span class="no">React</span><span class="o">::</span><span class="no">Router</span>
@@ -237,11 +237,11 @@ index method:</p>
 </code></pre>
 <p>You will mount this component the usual way (i.e. via <code>render_component</code>, <code>Element#render</code>, <code>react_render</code>, etc) or even by mounting it within a higher level application component.</p>
 
-<h4>Other router hooks:</h4>
+<h4 id="other-router-hooks">Other router hooks:</h4>
 
 <p>There are several other methods that can be redefined to modify the routers behavior</p>
 
-<h4>history</h4>
+<h4 id="history">history</h4>
 <pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">Router</span> <span class="o">&lt;</span> <span class="no">React</span><span class="o">::</span><span class="no">Router</span>
   <span class="k">def</span> <span class="nf">history</span>
   <span class="p">.</span><span class="nf">.</span><span class="p">.</span> <span class="nf">return</span> <span class="n">a</span> <span class="n">history</span> <span class="n">object</span>
@@ -258,7 +258,7 @@ index method:</p>
 <pre class="highlight ruby"><code><span class="p">.</span><span class="nf">.</span><span class="p">.</span>
   <span class="nf">alias_method</span> <span class="ss">:history</span> <span class="ss">:browser_history</span>
 </code></pre>
-<h4>create_element</h4>
+<h4 id="create_element">create_element</h4>
 
 <p><code>create_element</code> (if defined) is passed the component that the router will render, and its params.  Use it to intercept, inspect and/or modify the component behavior.</p>
 
@@ -304,7 +304,7 @@ index method:</p>
 
 <p>We will try to get more fancy with a later version of reactrb-router ;-)</p>
 
-<h4><code>stringify_query(params_hash)</code> &lt;- needs work</h4>
+<h4 id="stringify_query-params_hash-needs-work"><code>stringify_query(params_hash)</code> &lt;- needs work</h4>
 
 <p>The method used to convert an object from <Link>s or calls to transitionTo to a URL query string.</p>
 <pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">Router</span> <span class="o">&lt;</span> <span class="no">React</span><span class="o">::</span><span class="no">Router</span>
@@ -314,19 +314,19 @@ index method:</p>
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre>
-<h4><code>parse_query_string(string)</code> &lt;- needs work</h4>
+<h4 id="parse_query_string-string-needs-work"><code>parse_query_string(string)</code> &lt;- needs work</h4>
 
 <p>The method used to convert a query string into the route components&rsquo;s param hash</p>
 
-<h4><code>on_error(data)</code></h4>
+<h4 id="on_error-data"><code>on_error(data)</code></h4>
 
 <p>While the router is matching, errors may bubble up, here is your opportunity to catch and deal with them. Typically these will come when promises are rejected (see the DSL above for returning promises to handle async behaviors.)</p>
 
-<h4><code>on_update</code></h4>
+<h4 id="on_update"><code>on_update</code></h4>
 
 <p>Called whenever the router updates its state in response to URL changes.</p>
 
-<h4><code>render</code></h4>
+<h4 id="render"><code>render</code></h4>
 
 <p>A <code>Router</code> default <code>render</code> looks like this:</p>
 <pre class="highlight ruby"><code>  <span class="k">def</span> <span class="nf">render</span>
@@ -338,7 +338,7 @@ index method:</p>
 
 <p>Ensure that you render a <RouterContext> at the end of the line, passing all the props passed to render.</p>
 
-<h3>React::Router::Component</h3>
+<h3 id="react-router-component">React::Router::Component</h3>
 
 <p>The class React::Router::Component is a subclass of React::Component::Base that predefines the params that the router will be passing in to your component.  This includes</p>
 
@@ -358,9 +358,9 @@ index method:</p>
 
 <p>The subset of <code>params.params</code> that were directly specified in this component&rsquo;s route. For example, if the route&rsquo;s path is <code>users/:user_id</code> and the URL is /users/123/portfolios/345 then <code>params.route_params</code> will be <code>{user_id: &#39;123&#39;}</code>, and <code>params.params</code> will be <code>{user_id: &#39;123&#39;, portfolio_id: 345}</code>.</p>
 
-<h2>Development</h2>
+<h2 id="development">Development</h2>
 
-<h2>Contributing</h2>
+<h2 id="contributing">Contributing</h2>
 
 <ol>
 <li>Fork it ( <a href="https://github.com/catprintlabs/reactor-router/fork">https://github.com/catprintlabs/reactor-router/fork</a> )</li>
