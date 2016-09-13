@@ -37,16 +37,18 @@
         <h3>Table of Contents</h3>
         <ul>
 <li>
-<a href="#layout-layoutwithtoc">layout: layout<em>with</em>toc</a>
-</li>
-<li>
 <a href="#dsl-overview">DSL Overview</a>
-</li>
+<ul>
 <li>
 <a href="#dsl-gotchas">DSL Gotchas</a>
 </li>
+</ul>
+</li>
 <li>
-<a href="#state-and-event-handelers">State and Event Handelers</a>
+<a href="#state-components-and-event-handelers">State, Components and Event Handelers</a>
+<ul>
+<li>
+<a href="#using-state">Using State</a>
 </li>
 <li>
 <a href="#multiple-components">Multiple Components</a>
@@ -72,9 +74,11 @@
 <li>
 <a href="#mixins-and-inheritance">Mixins and Inheritance</a>
 </li>
+</ul>
+</li>
 <li>
 <a href="#top-level-api">Top level API</a>
-</li>
+<ul>
 <li>
 <a href="#react-component-base">React::Component::Base</a>
 </li>
@@ -90,9 +94,11 @@
 <li>
 <a href="#supported-events">Supported Events</a>
 </li>
+</ul>
+</li>
 <li>
 <a href="#using-javascript-components">Using Javascript Components</a>
-</li>
+<ul>
 <li>
 <a href="#importing-components">Importing Components</a>
 </li>
@@ -109,8 +115,10 @@
 <a href="#using-webpack">Using Webpack</a>
 </li>
 </ul>
+</li>
+</ul>
 
-        <h2>DSL Overview</h2>
+        <h1>DSL Overview</h1>
 
 <p>The Reactrb DSL (Domain Specific Language) is a set of class and instance methods that are used to describe your React components.</p>
 
@@ -358,7 +366,9 @@ with standard html tags.</p>
 <span class="no">MyCustomComponent</span>    <span class="c1"># breaks</span>
 <span class="n">br</span>                   <span class="c1"># okay</span>
 </code></pre>
-<h2>State and Event Handelers</h2>
+<h1>State, Components and Event Handelers</h1>
+
+<h2>Using State</h2>
 
 <h3>A Simple Example</h3>
 <pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">LikeButton</span> <span class="o">&lt;</span> <span class="no">React</span><span class="o">::</span><span class="no">Component</span><span class="o">::</span><span class="no">Base</span>
@@ -663,7 +673,7 @@ end
 
 <p>Notice that TickTock effectively has two before_mount callbacks, one that is called to initialize the <code>@intervals</code> array and another to initialize <code>state.seconds</code></p>
 
-<h2>Top level API</h2>
+<h1>Top level API</h1>
 
 <p>The <code>React</code> module is the name space for all the React classes and modules.  </p>
 
@@ -1207,7 +1217,7 @@ different browsers.</p>
 <p>Event names:</p>
 <pre class="highlight ruby"><code><span class="ss">:load</span><span class="p">,</span> <span class="ss">:error</span>
 </code></pre>
-<h2>Using Javascript Components</h2>
+<h1>Using Javascript Components</h1>
 
 <p>While it is quite possible to develop large applications purely in Reactrb with a ruby back end like rails, you may eventually find you want to use some pre-existing React Javascript library.   Or you may be working with an existing React-JS application, and want to just start adding some Reactrb components.</p>
 
