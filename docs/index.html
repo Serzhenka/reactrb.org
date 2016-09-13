@@ -224,7 +224,7 @@
 </code></pre>
 <p><code>params.mode</code> will return the value of the <code>mode</code> parameter passed to this instance, and <code>state.mode!</code> initializes (or updates) the <code>mode</code> state variable.  State variables are like <em>reactive</em> instance variables.  They can only be changed using the &ldquo;!&rdquo; method, and when they change they will cause a rerender.  </p>
 
-<p>More on the details of these methods can be found in the <a href="/component-api.html">Component API</a> section.</p>
+<p>More on the details of these methods can be found in the <a href="#top-level-api">Component API</a> section.</p>
 
 <h3 id="tag-and-component-rendering">Tag and Component Rendering</h3>
 <pre class="highlight ruby"><code>  <span class="p">.</span><span class="nf">.</span><span class="p">.</span>
@@ -330,14 +330,12 @@ method call looks like this:</p>
 
 <p>React has implemented a browser-independent events and DOM system for performance and cross-browser compatibility reasons. We took the opportunity to clean up a few rough edges in browser DOM implementations.</p>
 
-<p>Todo: check links below</p>
-
 <ul>
 <li>All DOM properties and attributes (including event handlers) should be snake_cased to be consistent with standard Ruby style. We intentionally break with the spec here since the spec is inconsistent. <strong>However</strong>, <code>data-*</code> and <code>aria-*</code> attributes <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#data-*">conform to the specs</a> and should be lower-cased only.</li>
 <li>The <code>style</code> attribute accepts a Hash with camelCased properties rather than a CSS string. This  is more efficient, and prevents XSS security holes.</li>
-<li>All event objects conform to the W3C spec, and all events (including submit) bubble correctly per the W3C spec. See <a href="/docs/events.html">Event System</a> for more details.</li>
-<li>The <code>onChange</code> event (<code>on(:change)</code>) behaves as you would expect it to: whenever a form field is changed this event is fired rather than inconsistently on blur. We intentionally break from existing browser behavior because <code>onChange</code> is a misnomer for its behavior and React relies on this event to react to user input in real time. See <a href="/docs/forms.html">Forms</a> for more details.</li>
-<li>Form input attributes such as <code>value</code> and <code>checked</code>, as well as <code>textarea</code>. <a href="/docs/forms.html">More here</a>.</li>
+<li>All event objects conform to the W3C spec, and all events (including submit) bubble correctly per the W3C spec. See <a href="#event-handling-and-synthetic-events">Event System</a> for more details.</li>
+<li>The <code>onChange</code> event (<code>on(:change)</code>) behaves as you would expect it to: whenever a form field is changed this event is fired rather than inconsistently on blur. We intentionally break from existing browser behavior because <code>onChange</code> is a misnomer for its behavior and React relies on this event to react to user input in real time.</li>
+<li>Form input attributes such as <code>value</code> and <code>checked</code>, as well as <code>textarea</code>.</li>
 </ul>
 
 <h3 id="html-entities">HTML Entities</h3>
@@ -403,9 +401,7 @@ with standard html tags.</p>
 
 <h3 id="how-state-works">How State Works</h3>
 
-<p>ToDo: check link below</p>
-
-<p>Whenever a state variable changes you invoke the corresponding state variable name followed by a &ldquo;!&rdquo; method.  For example <code>state.liked! !state.like</code> <em>gets</em> the current value of like, toggles it, and then <em>updates</em> it.  This in turn causes the component to be rerendered. For more details on how this works, and the full syntax of the update method see <a href="docs/component-api.html#the-state-instance-method">the component API reference</a></p>
+<p>Whenever a state variable changes you invoke the corresponding state variable name followed by a &ldquo;!&rdquo; method.  For example <code>state.liked! !state.like</code> <em>gets</em> the current value of like, toggles it, and then <em>updates</em> it.  This in turn causes the component to be rerendered. For more details on how this works, and the full syntax of the update method see <a href="#top-level-api">the component API reference</a></p>
 
 <h3 id="what-components-should-have-state">What Components Should Have State?</h3>
 
@@ -598,8 +594,6 @@ Intuitively, the paragraph <code>&lt;p&gt;foo&lt;/p&gt;</code> was removed. Inst
 
 <p><code>React::Observable</code> objects work very similar to state variables.  Any render method that accesses an observable value will be re-rendered if that value changes, and you can update the value (causing a rerender) using the param name followed by a &ldquo;!&rdquo;.</p>
 
-<p>Observable&rsquo;s are used to set up two (or even n) way linkages between components.  See the <a href="tbd">React::Observable</a> section for details.</p>
-
 <h2 id="params-of-type-proc">Params of type Proc</h2>
 
 <p>A Ruby <code>Proc</code> can be passed to a component like any other object.  The <code>param</code> macro treats params declared as type <code>Proc</code> specially, and will automatically call the proc when the param name is used on the params method.</p>
@@ -677,7 +671,7 @@ end
 
 <p>The <code>React</code> module is the name space for all the React classes and modules.  </p>
 
-<p>See the <a href="/docs/getting-started.html">Getting Started</a> section for details on getting react loaded in your environment.</p>
+<p>See the <a href="/getting-started">Getting Started</a> section for details on getting react loaded in your environment.</p>
 
 <h3 id="react-component-and-react-component-base"><code>React::Component</code> and <code>React::Component::Base</code></h3>
 
@@ -705,7 +699,7 @@ end
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre>
-<p>Note that you should never redefine the <code>new</code> or <code>initialize</code> methods, or call them directly.  The equivilent of <code>initialize</code> is the <code>before_mount</code> callback.  For more information see <a href="/docs/component-specs.html">Component Specs and Lifecycle</a>.</p>
+<p>Note that you should never redefine the <code>new</code> or <code>initialize</code> methods, or call them directly.  The equivilent of <code>initialize</code> is the <code>before_mount</code> callback.  </p>
 
 <h3 id="react-create_element"><code>React.create_element</code></h3>
 
@@ -1138,8 +1132,6 @@ different browsers.</p>
 <p>Event names:</p>
 <pre class="highlight ruby"><code><span class="ss">:change</span><span class="p">,</span> <span class="ss">:input</span><span class="p">,</span> <span class="ss">:submit</span>
 </code></pre>
-<p>For more information about the :change event, see <a href="/docs/forms.html">Forms</a>.</p>
-
 <h3 id="mouse-events">Mouse Events</h3>
 
 <p>Event names:</p>
