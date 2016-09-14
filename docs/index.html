@@ -22,7 +22,9 @@
   <body>
       <section class="page-header">
         <img src="/reactrb.org/images/g11.gif" width="100" alt="G11" />
-        <h1 class="project-name">Reactrb</h1>
+        <h1 class="project-name">
+          <a href="/" class="btn-logo">Reactrb</a>
+        </h1>
         <h2 class="project-tagline">USE RUBY TO BUILD REACTIVE USER INTERFACES</h2>
         <a href="/reactrb.org/get_started" class="btn">Get Started</a>
         <a href="/reactrb.org/installation" class="btn">Installation</a>
@@ -35,23 +37,16 @@
       </section>
 
       <section class="main-content">
-        <h1>Table of Contents</h1>
-        <ul>
-<li>
-<a href="#dsl-overview">DSL Overview</a>
-</li>
-<li>
-<a href="#state-components-and-event-handelers">State, Components and Event Handelers</a>
-</li>
-<li>
-<a href="#top-level-api">Top level API</a>
-</li>
-<li>
-<a href="#using-javascript-components">Using Javascript Components</a>
-</li>
+        <h1 id="reactrb-docs">Reactrb Docs</h1>
+
+<ul>
+<li><a href="#dsl-overview">DSL Overview</a></li>
+<li><a href="#state-components-and-event-handelers">State, Components and Event Handelers</a></li>
+<li><a href="#top-level-api">Top level API</a></li>
+<li><a href="#using-javascript-components">Using Javascript Components</a></li>
 </ul>
 
-        <h1 id="dsl-overview">DSL Overview</h1>
+<h2 id="dsl-overview">DSL Overview</h2>
 
 <p>The Reactrb DSL (Domain Specific Language) is a set of class and instance methods that are used to describe your React components.</p>
 
@@ -310,7 +305,7 @@ with standard html tags.</p>
 <span class="no">MyCustomComponent</span>    <span class="c1"># breaks</span>
 <span class="n">br</span>                   <span class="c1"># okay</span>
 </code></pre>
-<h1 id="state-components-and-event-handelers">State, Components and Event Handelers</h1>
+<h2 id="state-components-and-event-handelers">State, Components and Event Handelers</h2>
 
 <ul>
 <li><a href="#using-state">Using State</a></li>
@@ -324,9 +319,9 @@ with standard html tags.</p>
 <li><a href="#mixins-and-inheritance">Mixins and Inheritance</a></li>
 </ul>
 
-<h2 id="using-state">Using State</h2>
+<h3 id="using-state">Using State</h3>
 
-<h3 id="a-simple-example">A Simple Example</h3>
+<h4 id="a-simple-example">A Simple Example</h4>
 <pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">LikeButton</span> <span class="o">&lt;</span> <span class="no">React</span><span class="o">::</span><span class="no">Component</span><span class="o">::</span><span class="no">Base</span>
   <span class="n">render</span> <span class="k">do</span>
     <span class="n">para</span> <span class="k">do</span>
@@ -625,7 +620,7 @@ component by including <code>React::Component</code> which allows a class to inh
 
 <p>Notice that TickTock effectively has two before_mount callbacks, one that is called to initialize the <code>@intervals</code> array and another to initialize <code>state.seconds</code></p>
 
-<h1 id="top-level-api">Top level API</h1>
+<h2 id="top-level-api">Top level API</h2>
 
 <p>The <code>React</code> module is the name space for all the React classes and modules.  </p>
 
@@ -1179,7 +1174,7 @@ different browsers.</p>
 <p>Event names:</p>
 <pre class="highlight ruby"><code><span class="ss">:load</span><span class="p">,</span> <span class="ss">:error</span>
 </code></pre>
-<h1 id="using-javascript-components">Using Javascript Components</h1>
+<h2 id="using-javascript-components">Using Javascript Components</h2>
 
 <p>While it is quite possible to develop large applications purely in Reactrb with a ruby back end like rails, you may eventually find you want to use some pre-existing React Javascript library.   Or you may be working with an existing React-JS application, and want to just start adding some Reactrb components.</p>
 
